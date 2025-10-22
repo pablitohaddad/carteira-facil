@@ -18,10 +18,10 @@ public class RendaAtual implements Serializable {
     private Long id;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "usuario_id", referencedColumnName = "id", nullable = false, unique = true)
+    @JoinColumn(name = "usuario_id", referencedColumnName = "id", unique = true)
     @JsonIgnore
     private Usuario usuario;
 
-    @Column(name = "renda_total", nullable = false, precision = 12, scale = 2)
+    @Column(name = "renda_total", precision = 12, scale = 2)
     private BigDecimal rendaTotal;
 }
