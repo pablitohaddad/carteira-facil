@@ -34,6 +34,12 @@ public class GanhoController {
         return ResponseEntity.ok(ganhoService.listarTodos());
     }
 
+    @Operation(summary = "Lista ganhos de um usuário")
+    @GetMapping("/usuario/{usuarioId}")
+    public ResponseEntity<List<Ganho>> listarPorUsuario(@PathVariable Long usuarioId) {
+        return ResponseEntity.ok(ganhoService.listarPorUsuario(usuarioId));
+    }
+
     @Operation(summary = "Busca um ganho pelo ID")
     @GetMapping("/{id}")
     public ResponseEntity<Ganho> buscarPorId(@PathVariable Long id) {

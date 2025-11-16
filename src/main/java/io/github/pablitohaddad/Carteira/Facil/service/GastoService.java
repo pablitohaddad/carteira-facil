@@ -38,6 +38,11 @@ public class GastoService {
         return gastoRepository.findAll();
     }
 
+    // listar por usuario
+    public List<Gasto> listarPorUsuario(Long usuarioId) {
+        return gastoRepository.findByUsuarioId(usuarioId);
+    }
+
     public Optional<Gasto> buscarPorId(Long id) {
         return gastoRepository.findById(id);
     }

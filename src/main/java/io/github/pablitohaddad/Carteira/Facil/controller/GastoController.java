@@ -33,6 +33,12 @@ public class GastoController {
         return ResponseEntity.ok(gastoService.listarTodos());
     }
 
+    @Operation(summary = "Lista gastos de um usuário")
+    @GetMapping("/usuario/{usuarioId}")
+    public ResponseEntity<List<Gasto>> listarPorUsuario(@PathVariable Long usuarioId) {
+        return ResponseEntity.ok(gastoService.listarPorUsuario(usuarioId));
+    }
+
     @Operation(summary = "Busca um gasto pelo ID")
     @GetMapping("/{id}")
     public ResponseEntity<Gasto> buscarPorId(@PathVariable Long id) {

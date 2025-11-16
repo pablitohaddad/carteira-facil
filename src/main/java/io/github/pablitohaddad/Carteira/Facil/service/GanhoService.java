@@ -38,6 +38,11 @@ public class GanhoService {
         return ganhoRepository.findAll();
     }
 
+    // listar por usuario
+    public List<Ganho> listarPorUsuario(Long usuarioId) {
+        return ganhoRepository.findByUsuarioId(usuarioId);
+    }
+
     public Optional<Ganho> buscarPorId(Long id) {
         return ganhoRepository.findById(id);
     }
