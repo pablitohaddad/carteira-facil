@@ -22,6 +22,13 @@ public class Usuario implements Serializable {
     @Column(name = "senha_hash", nullable = false, length = 255)
     private String senhaHash;
 
-    // Nota: O campo 'email_valido' é uma CONSTRAINT CHECK no banco.
-    // O Spring Boot deve respeitar isso, mas validações em nível de código (DTO/Service) são melhores.
+    // NOVO: Campo para o Papel de Segurança (RBAC)
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false, length = 50)
+    private Role role;
+
+    // NOVO: Campo para o Tipo de Assinatura
+    @Enumerated(EnumType.STRING)
+    @Column(name = "subscription_type", nullable = false, length = 50)
+    private SubscriptionType subscriptionType;
 }
